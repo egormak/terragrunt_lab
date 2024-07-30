@@ -1,10 +1,9 @@
 
-# =============================================================================================
-# Construct KinD cluster
-# =============================================================================================
-
-resource "kind_cluster" "this" {
-  name = "flux-e2e"
+provider "helm" {
+  kubernetes {
+    config_path    = "~/.kube/config"
+    config_context = var.config_context
+  }
 }
 
 # ==========================================

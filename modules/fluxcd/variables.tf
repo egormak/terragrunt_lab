@@ -1,3 +1,9 @@
+variable "config_context" {
+  description = "Context from KubeConfig file"
+  type        = string
+  default     = "staging"
+}
+
 variable "github_token" {
   description = "GitHub token"
   sensitive   = true
