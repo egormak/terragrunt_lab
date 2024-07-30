@@ -1,0 +1,17 @@
+network:
+  version: 2
+  ethernets:
+    enp1s0:
+      dhcp4: true
+      match:
+        name: enp1s0
+      set-name: enp1s0
+    ens3:
+      addresses:
+        - ${ip_address}/24
+      gateway4: 192.168.29.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+      match:
+        name: ens3
+      set-name: ens3
