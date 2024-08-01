@@ -6,12 +6,13 @@ include "root" {
   path = find_in_parent_folders()
 }
 
-inputs = {   
-  // cilium_version = "1.15.6"
-  fluxcd_version = "2.3.0"
-  github_repository = "egorka"
+inputs = {
+  github_org = "egormak"   
+  github_repository = "fluxcd_begin"
+  github_token = "TOKEN"
+  flux_cluster_path = "clusters/egorka"
 }
 
 terraform {
-  source = "../../../modules//fluxcd"
+  source = "../../../modules//flux"
 }

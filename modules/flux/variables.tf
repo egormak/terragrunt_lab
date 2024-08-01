@@ -22,3 +22,9 @@ variable "github_repository" {
   type        = string
   default     = ""
 }
+
+variable "flux_cluster_path" {
+    description = "Path to the cluster"
+    type        = string
+    default     = "clusters/my-cluster"
+}
