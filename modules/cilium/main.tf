@@ -35,7 +35,7 @@ resource "helm_release" "cilium" {
   }
   set_list {
     name  = "ipam.operator.clusterPoolIPv4PodCIDRList"
-    value = ["10.1.0.0/16"]
+    value = ["${var.cilium_cidr_list}"]
   }
   set {
     name  = "localRedirectPolicy"

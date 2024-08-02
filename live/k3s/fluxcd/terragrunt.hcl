@@ -10,7 +10,7 @@ inputs = {
   github_org = "egormak"   
   github_repository = "fluxcd_begin"
   github_token = "TOKEN"
-  flux_cluster_path = "clusters/egorka"
+  flux_cluster_path = "clusters/k3s"
 }
 
 terraform {
