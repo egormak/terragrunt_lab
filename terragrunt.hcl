@@ -46,3 +46,24 @@ inputs = merge(
 //   folder_id  = local.env_vars.locals.folder_id
 //   network_id = local.group_vars.locals.network_id
 // })
+
+generate "backend" {
+  path      = "backend.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = <<EOF
+terraform {
+  backend "s3" {
+    endpoint = "http://127.0.0.1:9000"
+    bucket         = "terraform-state"
+    key            = "${path_relative_to_include()}/terraform.tfstate"
+    region         = "us-east-1"
+    access_key     = "minioadmin"
+    secret_key     = "minioadmin"
+    use_path_style = true
+    skip_credentials_validation = true
+    skip_metadata_api_check = true
+    skip_region_validation = true
+  }
+}
+EOF
+}
