@@ -19,11 +19,15 @@ resource "helm_release" "cilium" {
 
   set {
     name  = "k8sServiceHost"
-    value = "127.0.0.1"
+    value = var.kube_api_host
   }
   set {
     name  = "k8sServicePort"
     value = var.kube_api_port
+  }
+  set {
+    name  = "operator.replicas"
+    value = var.operator_replicas
   }
   set {
     name  = "hubble.relay.enabled"
@@ -38,12 +42,16 @@ resource "helm_release" "cilium" {
     value = ["${var.cilium_cidr_list}"]
   }
   set {
+    name  = "ipam.mode"
+    value = var.ipam_mode
+  }
+  set {
     name  = "localRedirectPolicy"
     value = "true"
   }
   set {
     name  = "kubeProxyReplacement"
-    value = "strict"
+    value = "true"
   }
 
 }
